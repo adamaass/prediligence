@@ -1,0 +1,74 @@
+[
+ {
+  "name": "Acyclic Labs",
+  "website": "https://acyclic.dev",
+  "batch": "Fall 2026",
+  "location": "London, England, United Kingdom",
+  "one_liner": "Agent swarms that make long-running tasks exponentially faster",
+  "industry": "B2B",
+  "team_size": 2
+ },
+ {
+  "name": "ByteAsk",
+  "website": "https://byteask.ai/",
+  "batch": "Fall 2026",
+  "location": "San Francisco, CA, USA",
+  "one_liner": "The AI coding agent for C and C++",
+  "industry": "B2B",
+  "team_size": 2
+ },
+ {
+  "name": "Dydema",
+  "website": "https://dydema.com/",
+  "batch": "Fall 2026",
+  "location": "San Francisco, CA, USA",
+  "one_liner": "A consumer brain-computer interface you can map to anything.",
+  "industry": "Consumer",
+  "team_size": 2
+ },
+ {
+  "name": "Ignition Benefits",
+  "website": "https://www.ignitionbenefits.com/",
+  "batch": "Fall 2026",
+  "location": "Los Angeles, CA, USA",
+  "one_liner": "The AI-Native Benefits Brokerage",
+  "industry": "Fintech",
+  "team_size": 12
+ },
+ {
+  "name": "Nxtcure Labs",
+  "website": "https://nxtcure.com",
+  "batch": "Fall 2026",
+  "location": "San Francisco, CA, USA",
+  "one_liner": "The full-stack AI CRO for drug discovery.",
+  "industry": "Healthcare",
+  "team_size": 0
+ },
+ {
+  "name": "Polemos Industries",
+  "website": "https://lokberg.com/",
+  "batch": "Fall 2026",
+  "location": "San Francisco, CA, USA",
+  "one_liner": "AI-guided ballistic missiles, cheap enough to field in numbers that\u2026",
+  "industry": "Industrials",
+  "team_size": 3
+ },
+ {
+  "name": "Shepherd Robotics",
+  "website": "https://shepherdrobotics.ai/",
+  "batch": "Fall 2026",
+  "location": "San Francisco, CA, USA",
+  "one_liner": "Robots for high skilled labor powering AI infrastructure",
+  "industry": "Industrials",
+  "team_size": 4
+ },
+ {
+  "name": "The Subvocal Company",
+  "website": "https://subvocal.company",
+  "batch": "Fall 2026",
+  "location": "San Francisco, CA, USA",
+  "one_liner": "Talk to your computer without talking",
+  "industry": "Consumer",
+  "team_size": 3
+ }
+]

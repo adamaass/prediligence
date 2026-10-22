@@ -1,0 +1,393 @@
+{
+ "summary": {
+  "prediligence": {
+   "correct": 19,
+   "wrong": 4,
+   "unknown": 9,
+   "total": 32
+  },
+  "baseline": {
+   "correct": 0,
+   "wrong": 0,
+   "unknown": 32,
+   "total": 32
+  },
+  "cited_lines": 6,
+  "answer_lines": 8,
+  "avg_run_seconds": 59,
+  "avg_sources": 16,
+  "n_startups": 8,
+  "model": "claude-sonnet-5-5",
+  "date": "2026-10-22 14:51"
+ },
+ "results": [
+  {
+   "startup": {
+    "name": "Acyclic Labs",
+    "website": "https://acyclic.dev",
+    "batch": "Fall 2026",
+    "location": "London, England, United Kingdom",
+    "one_liner": "Agent swarms that make long-running tasks exponentially faster",
+    "industry": "B2B",
+    "team_size": 2
+   },
+   "prediligence": {
+    "run_id": 4,
+    "status": "done",
+    "seconds": 79,
+    "stats": {
+     "facts": 25,
+     "pages": 25,
+     "stale": 2,
+     "queries": 8,
+     "conflicts": 2,
+     "conflict_facts": 0,
+     "memory_sources": 0
+    },
+    "n_sources": 25,
+    "n_facts": 25,
+    "answer": "Q1. Acyclic Labs builds infrastructure for agent swarms, with open-source primitives for running agents in parallel plus a managed platform. A task is split across many coding agents, each in its own sandbox, and the results are merged into one patch or pull request [1][7][11][12]. Q2. London, according to YC and Ram Vinjamuri's LinkedIn [4][16]. Varun Latthe's profile lists Cambridge, England [3]. No formal headquarters is stated, so London is the listed location rather than a confirmed HQ. Q3. Y Combinator F2026 (Fall 2026) [1][16]. Q4. AI and developer infrastructure, specifically agent and coding-agent tooling. YC lists it under Infrastructure, and LinkedIn lists Software Development [2][16]. Other companies named Acyclic Labs, such as the Bengaluru blockchain company, are unrelated [5][13].",
+    "grades": [
+     "correct",
+     "correct",
+     "correct",
+     "wrong"
+    ],
+    "cited_lines": 1,
+    "answer_lines": 1
+   },
+   "baseline": {
+    "seconds": 2.9,
+    "answer": "Q1. Unknown. I have no reliable information about what Acyclic Labs does, and I won't guess from the name or domain.\nQ2. Unknown.\nQ3. Unknown.\nQ4. Unknown. The name hints at something technical, but I can't confirm the sector.",
+    "grades": [
+     "unknown",
+     "unknown",
+     "unknown",
+     "unknown"
+    ]
+   }
+  },
+  {
+   "startup": {
+    "name": "ByteAsk",
+    "website": "https://byteask.ai/",
+    "batch": "Fall 2026",
+    "location": "San Francisco, CA, USA",
+    "one_liner": "The AI coding agent for C and C++",
+    "industry": "B2B",
+    "team_size": 2
+   },
+   "prediligence": {
+    "run_id": 6,
+    "status": "done",
+    "seconds": 20,
+    "stats": {
+     "facts": 0,
+     "pages": 0,
+     "stale": 0,
+     "queries": 8,
+     "conflicts": 0,
+     "conflict_facts": 0,
+     "memory_sources": 0
+    },
+    "n_sources": 0,
+    "n_facts": 0,
+    "answer": "Q1. Unknown. No facts or sources about ByteAsk were provided, so what the company does cannot be determined. Q2. Unknown. The evidence does not say where the company is headquartered. Q3. Unknown. The evidence does not say which Y Combinator batch the company is from. Q4. Unknown. The evidence does not say which industry or sector the company is in.",
+    "grades": [
+     "unknown",
+     "unknown",
+     "unknown",
+     "unknown"
+    ],
+    "cited_lines": 0,
+    "answer_lines": 1
+   },
+   "baseline": {
+    "seconds": 3.5,
+    "answer": "Q1. Unknown. I don't have reliable information about ByteAsk, and I'd only be guessing from the name and the .ai domain.\nQ2. Unknown.\nQ3. Unknown. I can't confirm that ByteAsk is a Y Combinator company or which batch it might be in.\nQ4. Unknown. The .ai domain suggests it is in AI or software, but I can't confirm that.",
+    "grades": [
+     "unknown",
+     "unknown",
+     "unknown",
+     "unknown"
+    ]
+   }
+  },
+  {
+   "startup": {
+    "name": "Dydema",
+    "website": "https://dydema.com/",
+    "batch": "Fall 2026",
+    "location": "San Francisco, CA, USA",
+    "one_liner": "A consumer brain-computer interface you can map to anything.",
+    "industry": "Consumer",
+    "team_size": 2
+   },
+   "prediligence": {
+    "run_id": 5,
+    "status": "done",
+    "seconds": 69,
+    "stats": {
+     "facts": 22,
+     "pages": 11,
+     "stale": 1,
+     "queries": 8,
+     "conflicts": 2,
+     "conflict_facts": 3,
+     "memory_sources": 0
+    },
+    "n_sources": 11,
+    "n_facts": 22,
+    "answer": "Q1. Dydema builds AI models that make sense of brain signals and records the data to train them, running neuro studies that deliver ML-ready datasets to customers [1, 4, 7]. Q2. San Francisco, CA [1, 5]. Q3. Y Combinator Fall 2026 (F26 / F2026) [1, 3, 4, 5]. Q4. Neurotech, meaning brain data and models for brain signals and brain\u2013computer interfaces [3, 5, 7]; LinkedIn lists the industry as Biotechnology Research [2], but its page describes a different proof-of-humanity wearable product, and a third-party site's description as workflow automation conflicts with primary sources, so I rely on the primary and YC descriptions [2, 9].",
+    "grades": [
+     "wrong",
+     "correct",
+     "correct",
+     "wrong"
+    ],
+    "cited_lines": 1,
+    "answer_lines": 1
+   },
+   "baseline": {
+    "seconds": 2.9,
+    "answer": "Q1. Unknown. I don't have reliable information about what Dydema does.\nQ2. Unknown.\nQ3. Unknown. I can't confirm which Y Combinator batch Dydema was in, or whether it was in YC at all.\nQ4. Unknown.",
+    "grades": [
+     "unknown",
+     "unknown",
+     "unknown",
+     "unknown"
+    ]
+   }
+  },
+  {
+   "startup": {
+    "name": "Ignition Benefits",
+    "website": "https://www.ignitionbenefits.com/",
+    "batch": "Fall 2026",
+    "location": "Los Angeles, CA, USA",
+    "one_liner": "The AI-Native Benefits Brokerage",
+    "industry": "Fintech",
+    "team_size": 12
+   },
+   "prediligence": {
+    "run_id": 3,
+    "status": "done",
+    "seconds": 22,
+    "stats": {
+     "facts": 0,
+     "pages": 0,
+     "stale": 0,
+     "queries": 8,
+     "conflicts": 0,
+     "conflict_facts": 0,
+     "memory_sources": 0
+    },
+    "n_sources": 0,
+    "n_facts": 0,
+    "answer": "Q1. Unknown: the stored facts and sources contain no information about what Ignition Benefits does. Q2. Unknown: no headquarters city is given in the evidence. Q3. Unknown: no Y Combinator batch is given in the evidence. Q4. Unknown: no industry or sector is given in the evidence. The FACTS and SOURCES sections are empty, so no claims can be cited.",
+    "grades": [
+     "unknown",
+     "unknown",
+     "unknown",
+     "unknown"
+    ],
+    "cited_lines": 0,
+    "answer_lines": 1
+   },
+   "baseline": {
+    "seconds": 3.3,
+    "answer": "Q1. Unknown. From the name, it may be a employee-benefits company, but I can't confirm what it actually does.\nQ2. Unknown.\nQ3. Unknown.\nQ4. Unknown. The name suggests benefits or HR tech, but that is a guess.",
+    "grades": [
+     "unknown",
+     "unknown",
+     "unknown",
+     "unknown"
+    ]
+   }
+  },
+  {
+   "startup": {
+    "name": "Nxtcure Labs",
+    "website": "https://nxtcure.com",
+    "batch": "Fall 2026",
+    "location": "San Francisco, CA, USA",
+    "one_liner": "The full-stack AI CRO for drug discovery.",
+    "industry": "Healthcare",
+    "team_size": 0
+   },
+   "prediligence": {
+    "run_id": 7,
+    "status": "done",
+    "seconds": 58,
+    "stats": {
+     "facts": 23,
+     "pages": 12,
+     "stale": 3,
+     "queries": 8,
+     "conflicts": 1,
+     "conflict_facts": 0,
+     "memory_sources": 0
+    },
+    "n_sources": 12,
+    "n_facts": 23,
+    "answer": "Q1. Nxtcure Labs builds Galen, a full-stack AI-driven CRO in which thirteen purpose-built agents run a clinical study end to end, with every consequential action held in a single human review queue until a qualified human approves it [7]; its YC listing also mentions NxtCure Cancer, a mobile platform guiding patients through the cancer journey [3][12]. Q2. Unknown: none of the sources state the company's headquarters city (the Beltsville, Maryland company is NextCure, Inc., a separate entity) [5][6]. Q3. The company is listed as a YC F26 company [3]. Q4. It operates in healthcare and biotech, specifically AI-driven clinical research and drug development services (CRO) [7][12].",
+    "grades": [
+     "correct",
+     "unknown",
+     "correct",
+     "correct"
+    ],
+    "cited_lines": 1,
+    "answer_lines": 1
+   },
+   "baseline": {
+    "seconds": 1.9,
+    "answer": "Q1. Unknown. I don't have reliable information about what Nxtcure Labs does, and I can't browse the website.\nQ2. Unknown.\nQ3. Unknown. I can't confirm that it is a Y Combinator company or which batch it was in.\nQ4. Unknown. The name suggests healthcare or biotech, but that is only a guess from the name.",
+    "grades": [
+     "unknown",
+     "unknown",
+     "unknown",
+     "unknown"
+    ]
+   }
+  },
+  {
+   "startup": {
+    "name": "Polemos Industries",
+    "website": "https://lokberg.com/",
+    "batch": "Fall 2026",
+    "location": "San Francisco, CA, USA",
+    "one_liner": "AI-guided ballistic missiles, cheap enough to field in numbers that\u2026",
+    "industry": "Industrials",
+    "team_size": 3
+   },
+   "prediligence": {
+    "run_id": 8,
+    "status": "done",
+    "seconds": 66,
+    "stats": {
+     "facts": 11,
+     "pages": 32,
+     "stale": 0,
+     "queries": 8,
+     "conflicts": 0,
+     "conflict_facts": 0,
+     "memory_sources": 0
+    },
+    "n_sources": 32,
+    "n_facts": 11,
+    "answer": "Q1. Polemos Industries builds AI-guided ballistics, namely surface-to-surface missiles and the compact, mobile launchers that fire them, designed for mass manufacturing and linked to recon drones in a distributed strike network [2][3][5]. Q2. San Francisco, according to Y Combinator's directory [3]. Q3. Fall 2026 (F2026) [3]. Q4. Y Combinator lists it in its Industrials category [3].",
+    "grades": [
+     "correct",
+     "correct",
+     "correct",
+     "correct"
+    ],
+    "cited_lines": 1,
+    "answer_lines": 1
+   },
+   "baseline": {
+    "seconds": 2.9,
+    "answer": "Q1. Unknown. I don't have reliable information on what Polemos Industries (lokberg.com) does.\nQ2. Unknown.\nQ3. Unknown. I can't confirm it is a Y Combinator company or which batch it belongs to.\nQ4. Unknown. The name \"Polemos\" (Greek for \"war\") hints at defense or industrial tech, but that is a guess, not knowledge.",
+    "grades": [
+     "unknown",
+     "unknown",
+     "unknown",
+     "unknown"
+    ]
+   }
+  },
+  {
+   "startup": {
+    "name": "Shepherd Robotics",
+    "website": "https://shepherdrobotics.ai/",
+    "batch": "Fall 2026",
+    "location": "San Francisco, CA, USA",
+    "one_liner": "Robots for high skilled labor powering AI infrastructure",
+    "industry": "Industrials",
+    "team_size": 4
+   },
+   "prediligence": {
+    "run_id": 10,
+    "status": "done",
+    "seconds": 71,
+    "stats": {
+     "facts": 26,
+     "pages": 26,
+     "stale": 1,
+     "queries": 8,
+     "conflicts": 2,
+     "conflict_facts": 0,
+     "memory_sources": 0
+    },
+    "n_sources": 26,
+    "n_facts": 26,
+    "answer": "Q1. Shepherd Robotics builds general-purpose robots, powered by robot foundation models and modular hardware, for skilled physical work in AI infrastructure and advanced manufacturing, starting with tasks like data center construction and operations, cable and wire manufacturing, wire harness assembly, kitting, and factory packaging [4][5][13]. Q2. It is based in San Francisco, California [2][13][15]. Q3. It is part of the Y Combinator Fall 2026 (F26) batch [2][5][13][15]. Q4. It operates in robotics, specifically AI infrastructure (data centers) and advanced manufacturing, and is listed in YC's Robotics, Manufacturing and Robotics, and Hardware categories [4][15][17][20].",
+    "grades": [
+     "correct",
+     "correct",
+     "correct",
+     "wrong"
+    ],
+    "cited_lines": 1,
+    "answer_lines": 1
+   },
+   "baseline": {
+    "seconds": 4.4,
+    "answer": "Q1. Unknown. I don't have reliable information about Shepherd Robotics, and I can't infer what it does from the name alone.\nQ2. Unknown.\nQ3. Unknown.\nQ4. Probably robotics or AI-enabled automation, going only by the name and domain. I can't confirm the specific sector.",
+    "grades": [
+     "unknown",
+     "unknown",
+     "unknown",
+     "unknown"
+    ]
+   }
+  },
+  {
+   "startup": {
+    "name": "The Subvocal Company",
+    "website": "https://subvocal.company",
+    "batch": "Fall 2026",
+    "location": "San Francisco, CA, USA",
+    "one_liner": "Talk to your computer without talking",
+    "industry": "Consumer",
+    "team_size": 3
+   },
+   "prediligence": {
+    "run_id": 11,
+    "status": "done",
+    "seconds": 85,
+    "stats": {
+     "facts": 28,
+     "pages": 25,
+     "stale": 0,
+     "queries": 8,
+     "conflicts": 2,
+     "conflict_facts": 1,
+     "memory_sources": 0
+    },
+    "n_sources": 25,
+    "n_facts": 28,
+    "answer": "Q1. The Subvocal Company builds Murmur, an under-chin wearable that uses EMG sensors to turn silent (subvocal) speech into text and computer commands [1][9][11]. Q2. It is headquartered in San Francisco [11]. Q3. It is part of Y Combinator's Fall 2026 (F26) batch [1][11][13]. Q4. It operates in wearable human-computer interface hardware, meaning silent-speech and AI-agent input devices. Standout lists it under Consumer Electronics [2], and the other sources describe a wearable device in the silent-interface space [9][10][11].",
+    "grades": [
+     "correct",
+     "correct",
+     "correct",
+     "correct"
+    ],
+    "cited_lines": 1,
+    "answer_lines": 1
+   },
+   "baseline": {
+    "seconds": 2.9,
+    "answer": "Q1. Unknown. I have no reliable information about this company. The name suggests subvocal speech or silent-speech interfaces, but that is only a guess.\nQ2. Unknown.\nQ3. Unknown.\nQ4. Unknown. The name hints at human-computer interfaces or wearables, but I can't confirm that.",
+    "grades": [
+     "unknown",
+     "unknown",
+     "unknown",
+     "unknown"
+    ]
+   }
+  }
+ ]
+}

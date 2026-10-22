@@ -1,0 +1,74 @@
+[
+ {
+  "name": "Menza",
+  "website": "https://menza.ai/",
+  "batch": "Winter 2026",
+  "location": "London, England, United Kingdom",
+  "one_liner": "The AI data analyst for consumer brands",
+  "industry": "B2B",
+  "team_size": 3
+ },
+ {
+  "name": "DiligenceSquared",
+  "website": "https://diligencesquared.com/",
+  "batch": "Fall 2025",
+  "location": "New York City, NY, USA",
+  "one_liner": "AI-powered market due diligence for investment decisions",
+  "industry": "B2B",
+  "team_size": 5
+ },
+ {
+  "name": "Hyperspell",
+  "website": "https://hyperspell.com",
+  "batch": "Fall 2025",
+  "location": "San Francisco, CA, USA",
+  "one_liner": "Your Company Brain",
+  "industry": "B2B",
+  "team_size": 8
+ },
+ {
+  "name": "The Context Company",
+  "website": "https://www.thecontextcompany.com",
+  "batch": "Fall 2025",
+  "location": "San Francisco, CA, USA",
+  "one_liner": "Find what's losing you customers and money in your AI agent and fix it",
+  "industry": "B2B",
+  "team_size": 2
+ },
+ {
+  "name": "Lemma",
+  "website": "https://www.uselemma.ai/",
+  "batch": "Fall 2025",
+  "location": "San Francisco, CA, USA",
+  "one_liner": "Production Monitoring for AI agents",
+  "industry": "B2B",
+  "team_size": 2
+ },
+ {
+  "name": "Exla",
+  "website": "https://exla.ai/",
+  "batch": "Winter 2025",
+  "location": "San Francisco, CA, USA",
+  "one_liner": "Building agents that reads logs and fixes issues on your behalf.",
+  "industry": "B2B",
+  "team_size": 2
+ },
+ {
+  "name": "Velum Labs",
+  "website": "https://www.velum-labs.com/",
+  "batch": "Winter 2026",
+  "location": "San Francisco, CA, USA",
+  "one_liner": "The OS for data quality across any stack",
+  "industry": "B2B",
+  "team_size": 2
+ },
+ {
+  "name": "Skillsync",
+  "website": "https://skillsync.com",
+  "batch": "Winter 2026",
+  "location": "San Francisco, CA, USA",
+  "one_liner": "Search your agent session history",
+  "industry": "B2B",
+  "team_size": 2
+ }
+]

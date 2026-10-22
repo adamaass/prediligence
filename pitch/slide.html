@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><title>PreDiligence pitch</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+@page { size: 1920px 1080px; margin: 0; }
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { width: 1920px; height: 1080px; }
+body { font-family: Inter, -apple-system, Helvetica, Arial, sans-serif; color: #efe9e2; overflow: hidden;
+  background: radial-gradient(1100px 560px at 70% -120px, rgba(214,150,100,.20), transparent 65%), #0b0908;
+  -webkit-print-color-adjust: exact; print-color-adjust: exact; padding: 44px 64px; display: flex; flex-direction: column; gap: 22px; }
+.copper { color: #e9bd93; }
+.label { font-size: 16px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: #d9a070; margin-bottom: 10px; }
+.card { background: rgba(255,255,255,.035); border: 1px solid rgba(255,255,255,.09); border-radius: 22px; padding: 22px 28px; }
+.muted { color: #a99f93; }
+ul { list-style: none; }
+li { font-size: 19.5px; line-height: 1.38; padding-left: 22px; position: relative; margin-bottom: 7px; color: #e3dcd3; }
+li::before { content: ""; position: absolute; left: 0; top: 12px; width: 8px; height: 8px; border-radius: 50%; background: #d9a070; }
+b { color: #fff; font-weight: 650; }
+header { display: flex; align-items: center; gap: 26px; }
+.brand { display: flex; align-items: center; gap: 18px; }
+.brand span { font-size: 44px; font-weight: 800; letter-spacing: -1.2px; }
+.event { margin-left: auto; text-align: right; font-size: 17px; color: #a99f93; line-height: 1.5; }
+h1 { font-size: 50px; line-height: 1.08; font-weight: 800; letter-spacing: -1.8px; max-width: 1560px; }
+.row { display: grid; gap: 26px; }
+.r1 { grid-template-columns: 1fr 1fr 1fr; }
+.r2 { grid-template-columns: 1.15fr 1fr; flex: 1; }
+.flow { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; margin: 4px 0 16px; }
+.chip { font-size: 18px; font-weight: 600; padding: 10px 16px; border-radius: 12px; background: rgba(217,160,112,.13); color: #f3cfae; border: 1px solid rgba(217,160,112,.28); }
+.chip.src { background: rgba(255,255,255,.06); color: #efe9e2; border-color: rgba(255,255,255,.14); }
+.arrow { color: #6f665d; font-size: 22px; }
+.db { display: flex; gap: 18px; align-items: flex-start; background: rgba(0,0,0,.25); border-radius: 14px; padding: 18px 20px; border: 1px dashed rgba(217,160,112,.35); }
+.db .t { font-size: 20px; line-height: 1.45; color: #e3dcd3; }
+.menza { display: flex; gap: 16px; align-items: stretch; margin-bottom: 14px; }
+.tag { flex: 1; border-radius: 14px; padding: 14px 16px; font-size: 18px; line-height: 1.4; }
+.tag.bad { background: rgba(255,255,255,.05); color: #a99f93; }
+.tag.good { background: rgba(217,160,112,.16); color: #f6d8bc; border: 1px solid rgba(217,160,112,.4); }
+.tag strong { display: block; font-size: 24px; color: #fff; margin-bottom: 2px; }
+table { width: 100%; border-collapse: collapse; font-size: 20px; }
+th { text-align: left; font-size: 15px; letter-spacing: .1em; text-transform: uppercase; color: #a99f93; font-weight: 600; padding: 0 0 10px; }
+td { padding: 7px 0; border-top: 1px solid rgba(255,255,255,.08); color: #e3dcd3; }
+td.us { color: #f3cfae; font-weight: 700; }
+.blank { display: inline-block; min-width: 70px; border-bottom: 2px solid #d9a070; color: #d9a070; text-align: center; }
+footer { font-size: 15px; color: #6f665d; }
+</style></head>
+<body>
+<header>
+  <div class="brand">
+    <svg width="74" height="74" viewBox="0 0 256 256" aria-label="PreDiligence logo">
+      <path d="M48 120 C48 186 96 230 128 244 C160 230 208 186 208 120 Z" fill="#efe9e2"/>
+      <circle cx="92" cy="160" r="30" fill="#0b0908"/><circle cx="164" cy="160" r="30" fill="#0b0908"/>
+      <circle cx="96" cy="164" r="13" fill="#efe9e2"/><circle cx="160" cy="164" r="13" fill="#efe9e2"/>
+      <path d="M128 192 L137 203 L128 216 L119 203 Z" fill="#0b0908"/>
+      <path d="M32 118 C32 66 76 38 128 38 C180 38 224 66 224 118 C198 112 150 112 128 146 C106 112 58 112 32 118 Z" fill="#efe9e2" stroke="#0b0908" stroke-width="10" stroke-linejoin="round"/>
+      <rect x="119" y="16" width="18" height="34" rx="9" fill="#efe9e2"/>
+    </svg>
+    <span>PreDiligence</span>
+  </div>
+  <div class="event">Accel · Future Founder Challenge<br>Data-Centric Agents · Paris</div>
+</header>
+
+<h1>The AI analyst that turns a startup name into a <span class="copper">sourced pre-call memo in 2 minutes</span>, and flags what the databases got wrong.</h1>
+
+<div class="row r1">
+  <div class="card">
+    <div class="label">Who it's for</div>
+    <ul>
+      <li><b>Analysts and partners at pre-seed and seed funds</b>, who screen hundreds of startups a month.</li>
+      <li>Each first look takes <b>2 to 4 hours</b> of research on public data that is scattered, stale and contradictory.</li>
+      <li>Incumbents serve PE, not seed: DiligenceSquared charges <b>~$50k per project</b>.</li>
+    </ul>
+  </div>
+  <div class="card">
+    <div class="label">Why now</div>
+    <ul>
+      <li><b>Live web search built for agents</b> is now cheap and fast (Keenable).</li>
+      <li>LLMs can finally <b>extract and cross-check facts</b>, not just summarise.</li>
+      <li>The market pays: Rogo passed <b>$50M ARR</b>, and Accel co-led <b>Bridgetown Research's $19M Series A</b>. Nobody serves early stage.</li>
+    </ul>
+  </div>
+  <div class="card">
+    <div class="label">First users</div>
+    <ul>
+      <li><b>The VCs in this room</b>: free pilot from tomorrow, on their real deal flow.</li>
+      <li>Paris seed funds, scout programs and angel networks, through warm intros.</li>
+      <li>A weekly public post: <b>"what the databases got wrong this week"</b>. Then €200–500 per seat per month.</li>
+    </ul>
+  </div>
+</div>
+
+<div class="row r2">
+  <div class="card">
+    <div class="label">How it works · data at the core</div>
+    <div class="flow">
+      <span class="chip src">Keenable live web + X</span><span class="arrow">→</span>
+      <span class="chip">Planner</span><span class="arrow">→</span>
+      <span class="chip">4 research agents</span><span class="arrow">→</span>
+      <span class="chip">Fact extractor</span><span class="arrow">→</span>
+      <span class="chip">Verifier</span><span class="arrow">→</span>
+      <span class="chip">Memo + 5 call questions</span>
+    </div>
+    <div class="db">
+      <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#d9a070" stroke-width="1.8"><ellipse cx="12" cy="5" rx="8" ry="3"/><path d="M4 5v14c0 1.7 3.6 3 8 3s8-1.3 8-3V5"/><path d="M4 12c0 1.7 3.6 3 8 3s8-1.3 8-3"/></svg>
+      <div class="t"><b>Aiven PostgreSQL is the memory.</b> Every fact is stored with its source, date and confidence. No source, no fact. The primary source beats stale databases, and every re-check shows exactly what changed.</div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="label">Proof</div>
+    <div class="menza">
+      <div class="tag bad"><strong>"Active"</strong>YC directory, PitchBook and Tracxn on Menza (YC W26)</div>
+      <div class="tag good"><strong>"Acquired"</strong>PreDiligence found it on Menza's own blog, with the source and date</div>
+    </div>
+    <table>
+      <tr><th>10 YC F26 startups</th><th>LLM alone</th><th>PreDiligence</th></tr>
+      <tr><td>Correct facts</td><td><span class="blank">__%</span></td><td class="us"><span class="blank">__%</span></td></tr>
+      <tr><td>Facts with a source</td><td><span class="blank">__%</span></td><td class="us"><span class="blank">__%</span></td></tr>
+      <tr><td>Time per startup</td><td>2–4 h by hand</td><td class="us"><span class="blank">__ min</span></td></tr>
+    </table>
+  </div>
+</div>
+</body></html>

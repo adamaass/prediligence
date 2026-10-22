@@ -1,0 +1,271 @@
+{
+ "summary": {
+  "date": "2026-10-22 15:08"
+ },
+ "results": [
+  {
+   "startup": {
+    "name": "Menza",
+    "website": "https://menza.ai/",
+    "batch": "Winter 2026",
+    "location": "London, England, United Kingdom",
+    "one_liner": "The AI data analyst for consumer brands",
+    "industry": "B2B",
+    "team_size": 3
+   },
+   "prediligence": {
+    "run_id": 21,
+    "status": "done",
+    "seconds": 70,
+    "stats": {
+     "facts": 31,
+     "pages": 48,
+     "stale": 2,
+     "queries": 8,
+     "conflicts": 4,
+     "conflict_facts": 6,
+     "memory_sources": 29
+    },
+    "n_sources": 48,
+    "n_facts": 31,
+    "answer": "Q1. Menza is an AI data analyst for consumer brands that connects to their data sources and monitors them 24/7 for revenue opportunities, cost leaks, trends and anomalies [4, 39]. Note that its homepage now states 'Menza has been acquired', with the full story to be shared soon [16, 21]. Q2. London, United Kingdom [4, 10]. Q3. Y Combinator Winter 2026 (W26) [4, 13, 39]. Q4. It is in AI-driven data analytics/business intelligence software for consumer brands and e-commerce (CPG/DTC) [4, 10].",
+    "grades": [
+     "correct",
+     "correct",
+     "correct",
+     "correct"
+    ]
+   },
+   "baseline": {
+    "seconds": 4.2,
+    "answer": "Q1. Unknown. I can't reliably say what Menza (menza.ai) does, and I don't want to guess.\nQ2. Unknown.\nQ3. Unknown. I can't confirm which Y Combinator batch, if any, Menza was part of.\nQ4. Unknown. I can't confidently place it in an industry from my own knowledge.",
+    "grades": [
+     "unknown",
+     "unknown",
+     "unknown",
+     "unknown"
+    ]
+   }
+  },
+  {
+   "startup": {
+    "name": "DiligenceSquared",
+    "website": "https://diligencesquared.com/",
+    "batch": "Fall 2025",
+    "location": "New York City, NY, USA",
+    "one_liner": "AI-powered market due diligence for investment decisions",
+    "industry": "B2B",
+    "team_size": 5
+   },
+   "prediligence": {
+    "run_id": 16,
+    "status": "done",
+    "seconds": 57,
+    "stats": {
+     "facts": 27,
+     "pages": 10,
+     "stale": 0,
+     "queries": 8,
+     "conflicts": 2,
+     "conflict_facts": 0,
+     "memory_sources": 0
+    },
+    "n_sources": 10,
+    "n_facts": 27,
+    "answer": "Q1. DiligenceSquared automates market/commercial due diligence for private equity funds, using AI agents (including voice agents) to conduct expert interviews and synthesize the insights into fully auditable, traceable reports [1][5][6][7][8]. Q2. It is headquartered in New York [2]. Q3. It is part of Y Combinator's Fall 2025 (F25) batch [2][6]. Q4. It operates in commercial due diligence and market research for private equity and investment teams (AI-native), and LinkedIn lists its industry as Market Research [2][8].",
+    "grades": [
+     "correct",
+     "correct",
+     "correct",
+     "correct"
+    ]
+   },
+   "baseline": {
+    "seconds": 4.0,
+    "answer": "Q1. DiligenceSquared appears to build AI (voice-agent) tools that run customer interviews and market research for commercial due diligence, mainly for private equity and investors. I'm going from memory, so treat this as likely rather than certain.\nQ2. San Francisco, though I'm not fully certain.\nQ3. Unknown. I think it may be a 2025 batch, but I can't say which.\nQ4. AI for financial services, specifically private equity and M&A due diligence.",
+    "grades": [
+     "correct",
+     "wrong",
+     "unknown",
+     "correct"
+    ]
+   }
+  },
+  {
+   "startup": {
+    "name": "Hyperspell",
+    "website": "https://hyperspell.com",
+    "batch": "Fall 2025",
+    "location": "San Francisco, CA, USA",
+    "one_liner": "Your Company Brain",
+    "industry": "B2B",
+    "team_size": 8
+   },
+   "prediligence": {
+    "run_id": 17,
+    "status": "done",
+    "seconds": 69,
+    "stats": {
+     "facts": 26,
+     "pages": 41,
+     "stale": 0,
+     "queries": 8,
+     "conflicts": 2,
+     "conflict_facts": 1,
+     "memory_sources": 0
+    },
+    "n_sources": 41,
+    "n_facts": 26,
+    "answer": "Q1. Hyperspell is the memory and context layer for AI agents, connecting tools like Slack, Gmail, Notion, and Google Drive so agents can recall, reason, and learn over time [1][2][15]. Q2. Unknown: the sources do not state a headquarters city, though the CEO's LinkedIn lists his location as the San Francisco Bay Area, which is not confirmed as the HQ [27]. Q3. It is part of Y Combinator's Fall 2025 (F25) batch [8][9][27][31]. Q4. It is in AI agent infrastructure, specifically developer-facing memory and context tooling for AI agents [1][2][14].",
+    "grades": [
+     "correct",
+     "unknown",
+     "correct",
+     "correct"
+    ]
+   },
+   "baseline": {
+    "seconds": 4.9,
+    "answer": "Q1. Hyperspell builds memory and context infrastructure for AI agents and apps, connecting users' data sources into a searchable knowledge layer so agents can personalize responses.\nQ2. San Francisco, though I'm not fully certain.\nQ3. I believe it is a 2025 batch, probably Summer 2025 (S25), but I'm not certain.\nQ4. AI infrastructure and developer tools.",
+    "grades": [
+     "correct",
+     "correct",
+     "wrong",
+     "correct"
+    ]
+   }
+  },
+  {
+   "startup": {
+    "name": "Lemma",
+    "website": "https://www.uselemma.ai/",
+    "batch": "Fall 2025",
+    "location": "San Francisco, CA, USA",
+    "one_liner": "Production Monitoring for AI agents",
+    "industry": "B2B",
+    "team_size": 2
+   },
+   "prediligence": {
+    "run_id": 19,
+    "status": "done",
+    "seconds": 54,
+    "stats": {
+     "facts": 27,
+     "pages": 41,
+     "stale": 3,
+     "queries": 8,
+     "conflicts": 3,
+     "conflict_facts": 1,
+     "memory_sources": 0
+    },
+    "n_sources": 41,
+    "n_facts": 27,
+    "answer": "Q1. Lemma is a production monitoring and observability platform for AI agents that catches silent semantic failures, such as wrong answers, forgotten messages and wrong tool choice, which traditional monitoring misses [15, 4, 22]. Q2. San Francisco, CA [20, 5, 3]. Q3. Y Combinator Fall 2025 (F25) [1, 3, 17]. Q4. It is in AI agent observability and monitoring, a developer-infrastructure and software category; one directory classifies it as 'AI agents' [22], and LinkedIn lists the industry as Software Development [20].",
+    "grades": [
+     "correct",
+     "correct",
+     "correct",
+     "correct"
+    ]
+   },
+   "baseline": {
+    "seconds": 4.1,
+    "answer": "Q1. I'm not certain; I believe Lemma builds tooling for AI agents (possibly observability or continuous improvement), but I can't confirm this from my own knowledge.\nQ2. Unknown.\nQ3. Unknown.\nQ4. Probably AI/developer tools, but I'm not sure.",
+    "grades": [
+     "unknown",
+     "unknown",
+     "unknown",
+     "unknown"
+    ]
+   }
+  },
+  {
+   "startup": {
+    "name": "Exla",
+    "website": "https://exla.ai/",
+    "batch": "Winter 2025",
+    "location": "San Francisco, CA, USA",
+    "one_liner": "Building agents that reads logs and fixes issues on your behalf.",
+    "industry": "B2B",
+    "team_size": 2
+   },
+   "prediligence": {
+    "run_id": 20,
+    "status": "done",
+    "seconds": 73,
+    "stats": {
+     "facts": 30,
+     "pages": 36,
+     "stale": 1,
+     "queries": 8,
+     "conflicts": 4,
+     "conflict_facts": 4,
+     "memory_sources": 0
+    },
+    "n_sources": 36,
+    "n_facts": 30,
+    "answer": "Q1. Exla builds Libra, an AI product that reads logs and production systems, identifies which customers are affected by errors, and opens fixes for production bugs [11][12][14][32][33]; it earlier built InferX, an open-source SDK for running models on edge hardware [11][13]. Q2. San Francisco [7][8][11]. Q3. Winter 2025 (W25) [1][11]. Q4. Developer tools / AI infrastructure, specifically AI-driven production monitoring and incident response (an 'AI SRE') [11][32], with earlier work in AI model optimization for edge inference [11][13].",
+    "grades": [
+     "correct",
+     "correct",
+     "correct",
+     "correct"
+    ]
+   },
+   "baseline": {
+    "seconds": 5.0,
+    "answer": "Q1. Exla builds AI infrastructure: it started with tooling to optimize and deploy models on edge hardware, and has since offered on-demand GPU clusters for AI training and inference. I'm not fully certain of its current focus.\nQ2. San Francisco (I believe, with moderate confidence).\nQ3. I think Winter 2024 (W24), but I'm not certain.\nQ4. AI/ML infrastructure (compute and inference optimization), within developer tools and cloud computing.",
+    "grades": [
+     "wrong",
+     "correct",
+     "wrong",
+     "correct"
+    ]
+   }
+  },
+  {
+   "startup": {
+    "name": "Velum Labs",
+    "website": "https://www.velum-labs.com/",
+    "batch": "Winter 2026",
+    "location": "San Francisco, CA, USA",
+    "one_liner": "The OS for data quality across any stack",
+    "industry": "B2B",
+    "team_size": 2
+   },
+   "prediligence": {
+    "run_id": 22,
+    "status": "done",
+    "seconds": 74,
+    "stats": {
+     "facts": 29,
+     "pages": 41,
+     "stale": 4,
+     "queries": 8,
+     "conflicts": 4,
+     "conflict_facts": 5,
+     "memory_sources": 0
+    },
+    "n_sources": 41,
+    "n_facts": 29,
+    "answer": "Q1. Velum Labs describes itself as 'the operating system for data quality', which finds where data broke, why, fixes it, and writes data contracts [3][25][26]; its primary website now promotes RouteKit, an open-source CLI and local gateway that pools Codex and Claude Code subscriptions [36][39][40], so the current focus is unclear. Q2. San Francisco, California [3][4][6][25]. Q3. Most sources say Winter 2026 (W26) [1][5][7][20][29], but the evidence conflicts: one database says Fall 2025 [4], a LinkedIn reshare mentions the 'F25 batch' [6], and some titles say 'YC P26' [3][6], so the batch is not definitively settled. Q4. Data infrastructure / data-quality software for enterprises [3][25][26], though its newest product is developer tooling for AI coding [39][40]; Brouky classes it as Software & Developer Tools [12] and LinkedIn lists the industry as Research Services [6].",
+    "grades": [
+     "correct",
+     "correct",
+     "correct",
+     "correct"
+    ]
+   },
+   "baseline": {
+    "seconds": 3.0,
+    "answer": "Q1. Unknown. I don't have reliable information on what Velum Labs does, and I won't guess from the name.\nQ2. Unknown.\nQ3. Unknown. I can't confirm that it is a Y Combinator company or which batch it belongs to.\nQ4. Unknown. I can't say which industry it is in.",
+    "grades": [
+     "unknown",
+     "unknown",
+     "unknown",
+     "unknown"
+    ]
+   }
+  }
+ ]
+}
