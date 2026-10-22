@@ -7,5 +7,5 @@
   <path d="M128 192 L137 203 L128 216 L119 203 Z" fill="#fff"/>
   <path d="M32 118 C32 66 76 38 128 38 C180 38 224 66 224 118 C198 112 150 112 128 146 C106 112 58 112 32 118 Z" fill="#000" stroke="#fff" stroke-width="10" stroke-linejoin="round"/>
   <rect x="119" y="16" width="18" height="34" rx="9" fill="#000"/>
-  <text x="284" y="162" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-weight="700" font-size="104" letter-spacing="-3" fill="#000">PreSeedDiligence</text>
+  <text x="284" y="162" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-weight="700" font-size="104" letter-spacing="-3" fill="#000">PreDiligence</text>
 </svg>

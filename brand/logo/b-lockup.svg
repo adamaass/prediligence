@@ -8,5 +8,5 @@
   <circle cx="100" cy="136" r="14" fill="#000"/>
   <circle cx="156" cy="136" r="14" fill="#000"/>
   <path d="M128 176 L138 188 L128 202 L118 188 Z" fill="#fff"/>
-  <text x="284" y="162" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-weight="700" font-size="104" letter-spacing="-3" fill="#000">PreSeedDiligence</text>
+  <text x="284" y="162" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-weight="700" font-size="104" letter-spacing="-3" fill="#000">PreDiligence</text>
 </svg>

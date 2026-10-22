@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>PreSeedDiligence — Live diligence for pre-seed VCs</title>
+<title>PreDiligence — Live diligence for pre-seed VCs</title>
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 256 256'%3E%3Cpath d='M48 120 C48 186 96 230 128 244 C160 230 208 186 208 120 Z'/%3E%3Ccircle cx='92' cy='160' r='30' fill='%23fff'/%3E%3Ccircle cx='164' cy='160' r='30' fill='%23fff'/%3E%3Ccircle cx='96' cy='164' r='13'/%3E%3Ccircle cx='160' cy='164' r='13'/%3E%3Cpath d='M128 192 L137 203 L128 216 L119 203 Z' fill='%23fff'/%3E%3Cpath d='M32 118 C32 66 76 38 128 38 C180 38 224 66 224 118 C198 112 150 112 128 146 C106 112 58 112 32 118 Z' stroke='%23fff' stroke-width='10' stroke-linejoin='round'/%3E%3Crect x='119' y='16' width='18' height='34' rx='9'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -29,7 +29,7 @@
 <!-- ============ SIDEBAR ============ -->
 <aside class="fixed inset-y-0 left-0 w-64 bg-[#0f1424] text-gray-300 flex flex-col">
   <a href="/" title="Back to home" class="px-5 py-5 flex items-center gap-2">
-    <svg class="w-8 h-8 shrink-0" viewBox="0 0 256 256" role="img" aria-label="PreSeedDiligence logo">
+    <svg class="w-8 h-8 shrink-0" viewBox="0 0 256 256" role="img" aria-label="PreDiligence logo">
       <path d="M48 120 C48 186 96 230 128 244 C160 230 208 186 208 120 Z" fill="#fff"/>
       <circle cx="92" cy="160" r="30" fill="#0f1424"/>
       <circle cx="164" cy="160" r="30" fill="#0f1424"/>
@@ -39,7 +39,7 @@
       <path d="M32 118 C32 66 76 38 128 38 C180 38 224 66 224 118 C198 112 150 112 128 146 C106 112 58 112 32 118 Z" fill="#fff" stroke="#0f1424" stroke-width="10" stroke-linejoin="round"/>
       <rect x="119" y="16" width="18" height="34" rx="9" fill="#fff"/>
     </svg>
-    <span class="text-white font-semibold tracking-tight">PreSeedDiligence</span>
+    <span class="text-white font-semibold tracking-tight">PreDiligence</span>
     <span class="ml-auto text-[10px] uppercase tracking-wider text-gray-500">beta</span>
   </a>
 
@@ -67,7 +67,7 @@
   <div id="empty" class="h-screen flex items-center justify-center">
     <div class="text-center max-w-md">
       <div class="text-2xl font-semibold text-gray-900">Pre-call diligence in 2 minutes</div>
-      <p class="text-gray-500 mt-2 text-sm leading-6">Type a startup on the left. PreSeedDiligence searches the live web and X, extracts facts, cross-checks them against what it already remembers, and writes a sourced memo.</p>
+      <p class="text-gray-500 mt-2 text-sm leading-6">Type a startup on the left. PreDiligence searches the live web and X, extracts facts, cross-checks them against what it already remembers, and writes a sourced memo.</p>
     </div>
   </div>
 
@@ -94,7 +94,7 @@
         <button class="tab pb-3 border-b-2 border-transparent text-gray-500 font-medium" data-tab="evidence">Evidence <span class="ml-1 text-gray-400" id="factCount"></span></button>
         <button class="tab pb-3 border-b-2 border-transparent text-gray-500 font-medium" data-tab="conflicts">Conflicts <span class="ml-1 px-1.5 rounded bg-amber-100 text-amber-700 text-[11px]" id="conflictCount"></span></button>
         <button class="tab pb-3 border-b-2 border-transparent text-gray-500 font-medium" data-tab="changes">Changes <span class="ml-1 px-1.5 rounded bg-red-100 text-red-700 text-[11px]" id="changeCount"></span></button>
-        <button class="tab pb-3 border-b-2 border-transparent text-gray-500 font-medium" data-tab="ask">Ask PreSeedDiligence</button>
+        <button class="tab pb-3 border-b-2 border-transparent text-gray-500 font-medium" data-tab="ask">Ask PreDiligence</button>
       </div>
     </header>
 
@@ -313,7 +313,7 @@ function renderChanges() {
   const dot = { red: 'bg-red-500', amber: 'bg-amber-400', gray: 'bg-gray-300' };
   if (!memo.prev_run) {
     $('tab-changes').innerHTML = `<div class="bg-white rounded-xl border border-gray-200 p-8 text-center text-sm text-gray-500">
-      First run for this company — facts are now stored in Aiven Postgres.<br>Hit <b>Re-check</b> later and PreSeedDiligence will diff the new evidence against this memory.</div>`;
+      First run for this company — facts are now stored in Aiven Postgres.<br>Hit <b>Re-check</b> later and PreDiligence will diff the new evidence against this memory.</div>`;
     return;
   }
   $('tab-changes').innerHTML = `
