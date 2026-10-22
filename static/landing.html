@@ -1,0 +1,427 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PreSeedDiligence — Pre-call diligence in 2 minutes</title>
+<meta name="description" content="PreSeedDiligence points research agents at the live web, cross-checks every fact against what it remembers, and hands pre-seed and seed VCs a sourced one-page memo before the first call.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0b0908;
+    --bg-2: #120e0b;
+    --panel: #15110e;
+    --line: rgba(255,255,255,.08);
+    --line-2: rgba(255,255,255,.14);
+    --text: #efe9e2;
+    --muted: #a99f93;
+    --dim: #6f665d;
+    --copper: #d9a070;
+    --copper-2: #f3cfae;
+    --copper-deep: #b87a4a;
+    --grad: linear-gradient(100deg, #c98d5e 0%, #e9bd93 55%, #f6d8bc 100%);
+    --ok: #7fc8a0; --warn: #e9a66b; --bad: #e07a6a;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0; background: var(--bg); color: var(--text);
+    font-family: Inter, system-ui, sans-serif; font-size: 17px; line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+  a { color: inherit; text-decoration: none; }
+  .mono { font-family: "JetBrains Mono", monospace; }
+  .display { font-family: Outfit, Inter, sans-serif; font-weight: 300; letter-spacing: -.02em; line-height: 1.05; }
+  .copper { background: var(--grad); -webkit-background-clip: text; background-clip: text; color: transparent; }
+  .eyebrow { font-family: "JetBrains Mono", monospace; font-size: 12px; letter-spacing: .28em; text-transform: uppercase; color: var(--copper); }
+  .wrap { max-width: 1180px; margin: 0 auto; padding: 0 24px; }
+  em { font-style: italic; color: var(--copper-2); }
+
+  /* background: warm glow + faint grid */
+  .bg {
+    position: fixed; inset: 0; z-index: -1; pointer-events: none;
+    background:
+      radial-gradient(900px 520px at 50% -60px, rgba(214,150,100,.22), transparent 65%),
+      radial-gradient(700px 500px at 50% 25%, rgba(120,70,40,.18), transparent 70%),
+      linear-gradient(var(--line) 1px, transparent 1px) 0 0 / 120px 120px,
+      linear-gradient(90deg, var(--line) 1px, transparent 1px) 0 0 / 120px 120px,
+      var(--bg);
+    mask-image: linear-gradient(#000 0, #000 70%, transparent 100%);
+  }
+
+  /* nav */
+  nav { position: sticky; top: 0; z-index: 10; backdrop-filter: blur(10px); background: rgba(11,9,8,.7); border-bottom: 1px solid var(--line); }
+  nav .wrap { display: flex; align-items: center; gap: 28px; height: 64px; }
+  .brand { display: flex; align-items: center; gap: 10px; font-weight: 600; letter-spacing: -.01em; }
+  .brand svg { width: 28px; height: 28px; }
+  nav .links { display: flex; gap: 26px; margin-left: auto; font-size: 14px; color: var(--muted); }
+  nav .links a:hover { color: var(--text); }
+  .btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; border-radius: 12px; padding: 12px 22px; font-weight: 600; font-size: 15px; border: 1px solid transparent; cursor: pointer; transition: transform .12s, box-shadow .12s; white-space: nowrap; }
+  .btn-copper { background: var(--grad); color: #1a110b; box-shadow: 0 0 0 1px rgba(255,255,255,.08) inset, 0 10px 30px -12px rgba(233,189,147,.6); }
+  .btn-copper:hover { transform: translateY(-1px); box-shadow: 0 14px 34px -12px rgba(233,189,147,.75); }
+  .btn-ghost { border-color: var(--line-2); color: var(--text); background: rgba(255,255,255,.02); }
+  .btn-ghost:hover { background: rgba(255,255,255,.06); }
+  nav .btn { padding: 9px 16px; font-size: 14px; }
+
+  /* hero */
+  .hero { text-align: center; padding: 120px 0 72px; }
+  .hero h1 { margin: 22px 0 0; font-size: clamp(44px, 7.2vw, 104px); }
+  .hero h1 span { display: block; }
+  .hero p.lead { max-width: 820px; margin: 34px auto 0; font-size: clamp(17px, 1.6vw, 22px); color: var(--muted); line-height: 1.55; }
+
+  .search { max-width: 1160px; margin: 56px auto 0; display: flex; align-items: center; gap: 12px; padding: 10px 10px 10px 26px; border-radius: 22px; background: linear-gradient(180deg, rgba(255,255,255,.035), rgba(255,255,255,.015)); border: 1px solid var(--line-2); box-shadow: 0 30px 80px -40px rgba(0,0,0,.9), 0 0 0 1px rgba(0,0,0,.4); }
+  .search svg { width: 26px; height: 26px; color: var(--muted); flex: none; }
+  .search input { flex: 1; min-width: 0; background: transparent; border: 0; outline: 0; color: var(--text); font-family: Inter, sans-serif; font-size: clamp(18px, 1.8vw, 24px); padding: 14px 6px; }
+  .search input::placeholder { color: var(--dim); }
+  .search .btn { padding: 20px 34px; font-size: 19px; border-radius: 16px; }
+  .hint { margin-top: 16px; font-size: 13px; color: var(--dim); }
+  .hint b { color: var(--muted); font-weight: 500; }
+
+  /* stats */
+  .stats { margin-top: 110px; display: grid; grid-template-columns: repeat(3, 1fr); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+  .stats > div { padding: 54px 28px; text-align: center; }
+  .stats > div + div { border-left: 1px solid var(--line); }
+  .stats .n { font-family: "JetBrains Mono", monospace; font-size: 34px; color: var(--text); }
+  .stats .l { margin-top: 12px; color: var(--muted); font-size: 16px; max-width: 300px; margin-inline: auto; }
+
+  /* sections */
+  section { padding: 120px 0; }
+  .head { max-width: 860px; }
+  .head h2 { font-size: clamp(34px, 4.6vw, 60px); margin: 18px 0 0; }
+  .head p { color: var(--muted); font-size: 19px; margin: 22px 0 0; max-width: 700px; }
+  .center { text-align: center; margin-inline: auto; }
+  .center p { margin-inline: auto; }
+
+  .grid4 { margin-top: 64px; display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: var(--line); border: 1px solid var(--line); border-radius: 18px; overflow: hidden; }
+  .grid4 > div { background: var(--bg-2); padding: 34px 28px; }
+  .grid4 h3 { margin: 18px 0 10px; font-size: 19px; font-weight: 600; letter-spacing: -.01em; }
+  .grid4 p { margin: 0; color: var(--muted); font-size: 15.5px; }
+  .ic { width: 38px; height: 38px; border-radius: 10px; display: grid; place-items: center; background: rgba(217,160,112,.1); color: var(--copper); border: 1px solid rgba(217,160,112,.25); }
+  .ic svg { width: 20px; height: 20px; }
+
+  /* pipeline */
+  .pipe { margin-top: 64px; display: grid; grid-template-columns: repeat(5, 1fr); gap: 14px; }
+  .pipe > div { position: relative; padding: 26px 22px; border: 1px solid var(--line); border-radius: 16px; background: linear-gradient(180deg, rgba(255,255,255,.03), transparent); }
+  .pipe .k { font-family: "JetBrains Mono", monospace; font-size: 12px; color: var(--copper); letter-spacing: .2em; }
+  .pipe h3 { margin: 10px 0 8px; font-size: 20px; font-weight: 500; font-family: Outfit, sans-serif; }
+  .pipe p { margin: 0; font-size: 14.5px; color: var(--muted); }
+  .pipe > div + div::before { content: "→"; position: absolute; left: -16px; top: 30px; color: var(--dim); font-size: 14px; }
+  .datalayer { margin-top: 26px; display: flex; gap: 28px; flex-wrap: wrap; font-size: 14px; color: var(--muted); }
+  .datalayer span { display: inline-flex; align-items: center; gap: 8px; }
+  .dot { width: 8px; height: 8px; border-radius: 99px; background: var(--ok); box-shadow: 0 0 10px var(--ok); }
+
+  /* demo case */
+  .case { margin-top: 64px; display: grid; grid-template-columns: 1.1fr .9fr; gap: 24px; }
+  .card { border: 1px solid var(--line); border-radius: 20px; background: var(--panel); padding: 30px; }
+  .alert { border-color: rgba(224,122,106,.35); background: linear-gradient(180deg, rgba(224,122,106,.08), var(--panel)); }
+  .tag { display: inline-flex; align-items: center; gap: 6px; font-family: "JetBrains Mono", monospace; font-size: 11.5px; letter-spacing: .12em; text-transform: uppercase; padding: 5px 10px; border-radius: 99px; border: 1px solid var(--line-2); color: var(--muted); }
+  .tag.bad { color: var(--bad); border-color: rgba(224,122,106,.4); }
+  .tag.ok { color: var(--ok); border-color: rgba(127,200,160,.4); }
+  .tag.warn { color: var(--warn); border-color: rgba(233,166,107,.4); }
+  .card h3 { font-family: Outfit, sans-serif; font-weight: 400; font-size: 30px; margin: 16px 0 10px; letter-spacing: -.01em; }
+  .card p { color: var(--muted); margin: 0; }
+  .srcs { margin-top: 22px; display: grid; gap: 10px; }
+  .src { display: flex; flex-wrap: wrap; gap: 6px 16px; align-items: center; padding: 12px 16px; border-radius: 12px; background: rgba(255,255,255,.03); border: 1px solid var(--line); font-size: 14.5px; }
+  .src .who { color: var(--text); font-weight: 500; flex: 0 0 140px; }
+  .src .what { color: var(--muted); flex: 1 1 220px; }
+  .src .when { margin-left: auto; }
+  .src .when { font-family: "JetBrains Mono", monospace; font-size: 12px; color: var(--dim); }
+  .src.primary { border-color: rgba(217,160,112,.4); background: rgba(217,160,112,.06); }
+  .verdict { margin-top: 18px; padding: 16px 18px; border-left: 2px solid var(--copper); background: rgba(217,160,112,.05); border-radius: 0 12px 12px 0; font-size: 15px; color: var(--text); }
+  .verdict b { color: var(--copper-2); font-weight: 500; }
+  .memo-lines { margin-top: 18px; display: grid; gap: 12px; font-size: 15px; }
+  .memo-lines div { display: flex; gap: 12px; align-items: flex-start; color: var(--muted); }
+  .cite { flex: none; font-family: "JetBrains Mono", monospace; font-size: 11px; padding: 2px 7px; border-radius: 6px; background: rgba(217,160,112,.14); color: var(--copper-2); margin-top: 3px; }
+
+  /* who */
+  .who3 { margin-top: 64px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+  .who3 .card h3 { font-size: 26px; margin-top: 0; }
+  .who3 .card p { font-size: 15.5px; }
+
+  /* proof */
+  .table { margin-top: 56px; border: 1px solid var(--line); border-radius: 18px; overflow: hidden; }
+  .table .row { display: grid; grid-template-columns: 1.4fr 1fr 1fr; }
+  .table .row > div { padding: 22px 28px; border-top: 1px solid var(--line); }
+  .table .row > div + div { border-left: 1px solid var(--line); }
+  .table .row.h > div { border-top: 0; background: rgba(255,255,255,.03); font-family: "JetBrains Mono", monospace; font-size: 12px; letter-spacing: .18em; text-transform: uppercase; color: var(--muted); }
+  .table .row.h > div:last-child { color: var(--copper); }
+  .table .m { color: var(--muted); }
+  .table .v { font-family: "JetBrains Mono", monospace; font-size: 20px; }
+  .table .v.dim { color: var(--dim); }
+  .table .v.hi { color: var(--copper-2); }
+  .caption { margin-top: 14px; font-size: 13px; color: var(--dim); }
+
+  /* pricing */
+  .price { margin-top: 56px; display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+  .price .big { font-family: Outfit, sans-serif; font-size: 56px; font-weight: 300; letter-spacing: -.02em; margin: 18px 0 6px; }
+  .price .big small { font-size: 18px; color: var(--muted); font-family: Inter, sans-serif; letter-spacing: 0; }
+  .price ul { list-style: none; padding: 0; margin: 20px 0 0; display: grid; gap: 10px; color: var(--muted); font-size: 15.5px; }
+  .price li::before { content: "—"; color: var(--copper); margin-right: 10px; }
+  .featured { border-color: rgba(217,160,112,.45); box-shadow: 0 0 0 1px rgba(217,160,112,.15) inset, 0 40px 80px -50px rgba(233,189,147,.4); }
+
+  /* cta */
+  .cta { text-align: center; padding: 140px 0 120px; }
+  .cta h2 { font-size: clamp(38px, 5.4vw, 72px); margin: 0; }
+  .cta .search { max-width: 820px; }
+
+  footer { border-top: 1px solid var(--line); padding: 36px 0; color: var(--dim); font-size: 13.5px; }
+  footer .wrap { display: flex; flex-wrap: wrap; gap: 18px; align-items: center; }
+  footer .right { margin-left: auto; display: flex; gap: 22px; }
+
+  @media (max-width: 900px) {
+    .stats, .grid4, .pipe, .case, .who3, .price { grid-template-columns: 1fr; }
+    .stats > div + div { border-left: 0; border-top: 1px solid var(--line); }
+    .pipe > div + div::before { content: "↓"; left: 22px; top: -18px; }
+    .search { flex-wrap: wrap; padding: 12px; border-radius: 18px; }
+    .search input { width: 100%; padding: 10px 8px; }
+    .search .btn { width: 100%; }
+    nav .links { display: none; }
+    section { padding: 80px 0; }
+    .hero { padding-top: 80px; }
+  }
+</style>
+</head>
+<body>
+<div class="bg"></div>
+
+<nav>
+  <div class="wrap">
+    <a class="brand" href="/">
+      <svg viewBox="0 0 256 256" aria-hidden="true"><defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#c98d5e"/><stop offset="1" stop-color="#f3cfae"/></linearGradient></defs>
+        <path d="M50 112 L56 36 L106 70 Z M206 112 L200 36 L150 70 Z" fill="url(#g)"/><circle cx="128" cy="148" r="90" fill="url(#g)"/>
+        <line x1="194" y1="156" x2="232" y2="194" stroke="#0b0908" stroke-width="34" stroke-linecap="round"/><line x1="194" y1="156" x2="232" y2="194" stroke="url(#g)" stroke-width="18" stroke-linecap="round"/>
+        <circle cx="90" cy="132" r="28" fill="#0b0908"/><circle cx="95" cy="136" r="12" fill="url(#g)"/>
+        <circle cx="166" cy="128" r="44" fill="#0b0908"/><circle cx="166" cy="128" r="34" fill="#0b0908" stroke="url(#g)" stroke-width="10"/><circle cx="161" cy="133" r="15" fill="url(#g)"/>
+        <path d="M119 168 H137 L128 182 Z" fill="#0b0908"/></svg>
+      PreSeedDiligence
+    </a>
+    <div class="links">
+      <a href="#how">How it works</a>
+      <a href="#case">The Menza case</a>
+      <a href="#proof">Proof</a>
+      <a href="#pricing">Pricing</a>
+    </div>
+    <a class="btn btn-ghost" href="/app">Open the app</a>
+  </div>
+</nav>
+
+<!-- ================= HERO ================= -->
+<header class="hero">
+  <div class="wrap">
+    <div class="eyebrow">Diligence for pre-seed &amp; seed VCs</div>
+    <h1 class="display">
+      <span>Take the call ready.</span>
+      <span class="copper">Without trusting a stale database.</span>
+    </h1>
+    <p class="lead">PreSeedDiligence points research agents at the live web and X, cross-checks every fact against what it already remembers, and hands you a one-page pre-call memo where every claim links to its source. No analyst required.</p>
+
+    <form class="search" action="/app" method="get">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3.5 3 14.5 0 18M12 3c-3 3.5-3 14.5 0 18"/></svg>
+      <input name="startup" placeholder="Startup name or website" autocomplete="off" required>
+      <button class="btn btn-copper" type="submit">Run diligence</button>
+    </form>
+    <div class="hint">Try <b>Menza</b> · a live run takes about 2 minutes · every source dated</div>
+
+    <div class="stats">
+      <div><div class="n">2 min</div><div class="l">from a name to a sourced one-page memo</div></div>
+      <div><div class="n">Every fact</div><div class="l">linked to a dated source. No source, no fact</div></div>
+      <div><div class="n">Zero</div><div class="l">contradictions left for you to spot by hand</div></div>
+    </div>
+  </div>
+</header>
+
+<!-- ================= WHY ================= -->
+<section id="why">
+  <div class="wrap">
+    <div class="head center">
+      <div class="eyebrow">Why funds switch</div>
+      <h2 class="display">The <em>rigor</em> of an analyst. The <em>speed</em> of a machine. A <em>price</em> that makes sense for a $500k ticket.</h2>
+      <p>You see 300 startups a month. Each one costs three hours of tabs before the first call, and the databases you pay for are weeks behind the founder's own blog.</p>
+    </div>
+
+    <div class="grid4">
+      <div>
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div>
+        <h3>Live, not indexed</h3>
+        <p>Agents search the open web and X at the moment you ask. Not a snapshot a data vendor took last quarter.</p>
+      </div>
+      <div>
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M10 13a5 5 0 0 0 7 0l3-3a5 5 0 0 0-7-7l-1 1"/><path d="M14 11a5 5 0 0 0-7 0l-3 3a5 5 0 0 0 7 7l1-1"/></svg></div>
+        <h3>Fully traceable</h3>
+        <p>Every claim in the memo carries a citation with the URL, the publish date and the quote. There is no black box.</p>
+      </div>
+      <div>
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 7a8 8 0 0 1 16 0v10a8 8 0 0 1-16 0z"/><path d="M4 12h16"/></svg></div>
+        <h3>It remembers</h3>
+        <p>Facts are stored with their source and date. Each new run compares against the last one, so the fund gets smarter with every deal.</p>
+      </div>
+      <div>
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3l9 16H3z"/><path d="M12 10v4M12 17h.01"/></svg></div>
+        <h3>Flags what changed</h3>
+        <p>Primary source beats press beats databases. When two sources disagree, or one is stale, you see both side by side and the verdict.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= HOW ================= -->
+<section id="how">
+  <div class="wrap">
+    <div class="head">
+      <div class="eyebrow">How it works</div>
+      <h2 class="display">Five agents. One memo. <span class="copper">Two minutes.</span></h2>
+      <p>Each stage reads from and writes to the fund's fact memory, so stale data and changes are detected on the way, not after.</p>
+    </div>
+
+    <div class="pipe">
+      <div><div class="k">01</div><h3>Planner</h3><p>Turns a startup name into six targeted searches: team, funding, product, competitors, news, X.</p></div>
+      <div><div class="k">02</div><h3>Search</h3><p>Runs them in parallel on the live web. Each page comes back with its publish date and fetch date.</p></div>
+      <div><div class="k">03</div><h3>Extract</h3><p>Pulls structured facts out of the pages. A fact without a URL is rejected.</p></div>
+      <div><div class="k">04</div><h3>Verify</h3><p>Confronts new facts with each other and with memory: confirmed, new, contradicted or stale.</p></div>
+      <div><div class="k">05</div><h3>Memo</h3><p>Writes the pre-call memo from verified facts only, plus five questions to ask the founder.</p></div>
+    </div>
+    <div class="datalayer">
+      <span><i class="dot"></i>Keenable · live web + X search</span>
+      <span><i class="dot"></i>Aiven PostgreSQL · fact memory with source and date</span>
+      <span><i class="dot"></i>Claude · extraction, verification, writing</span>
+    </div>
+  </div>
+</section>
+
+<!-- ================= CASE ================= -->
+<section id="case">
+  <div class="wrap">
+    <div class="head">
+      <div class="eyebrow">A real run · October 2026</div>
+      <h2 class="display">YC says <em>Active</em>. PitchBook says <em>Active</em>. Their own blog says <span class="copper">acquired.</span></h2>
+      <p>Menza, YC W26. Three databases still list the company as active. The founders announced the acquisition on their blog on October 9. PreSeedDiligence caught it on the first run.</p>
+    </div>
+
+    <div class="case">
+      <div class="card alert">
+        <span class="tag bad">Alert · status conflict</span>
+        <h3>Acquired, while 3 databases still say Active</h3>
+        <p>Sources disagree on the company's status. The most recent primary source wins.</p>
+        <div class="srcs">
+          <div class="src primary"><span class="who">menza.ai/blog</span><span class="what">“Menza has been acquired. We'll share the full story soon.”</span><span class="when">PRIMARY · 2026-10-09</span></div>
+          <div class="src"><span class="who">ycombinator.com</span><span class="what">Status: Active · W26 · 3 employees</span><span class="when">DATABASE · 2026-10-20</span></div>
+          <div class="src"><span class="who">pitchbook.com</span><span class="what">Status: Active · Private</span><span class="when">DATABASE · 2026-09</span></div>
+          <div class="src"><span class="who">tracxn.com</span><span class="what">Stage: Seed · Active</span><span class="when">DATABASE · 2026-09</span></div>
+        </div>
+        <div class="verdict"><b>Verdict:</b> acquired. Acquirer, price and date are not public yet. Ask the founder who bought the company and whether the team stays.</div>
+      </div>
+
+      <div class="card">
+        <span class="tag warn">Contradiction · funding</span>
+        <h3>$1.5M or $2M?</h3>
+        <p>Two sources disagree on the total raised. Both are shown, neither is silently picked.</p>
+        <div class="srcs">
+          <div class="src"><span class="who">equityflow.finance</span><span class="what">Seed round · $1.5M</span><span class="when">2026-06</span></div>
+          <div class="src"><span class="who">ycstartups.co</span><span class="what">$2M across 4 rounds, incl. $500k note</span><span class="when">2026-09-18</span></div>
+        </div>
+        <div class="memo-lines">
+          <div><span class="cite">[4]</span>Founded in London in 2023 as Latentspace. Previous startup of the CEO, ShortlyAI, was acquired by Jasper.</div>
+          <div><span class="cite">[7]</span>Connects 650+ brand tools and monitors data 24/7. Evolve Beauty reports 60+ hours saved per month.</div>
+          <div><span class="cite">[2]</span>Self-reported: 100% customer retention since April 2025, +235% MRR since January 2026.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= WHO ================= -->
+<section id="who">
+  <div class="wrap">
+    <div class="head center">
+      <div class="eyebrow">Who it is for</div>
+      <h2 class="display">Built for the decisions that never justified an analyst.</h2>
+      <p>Commercial due diligence firms serve private equity on $500M deals at $50k a project. Nobody serves the fund writing a $500k cheque after one call.</p>
+    </div>
+    <div class="who3">
+      <div class="card"><h3>Pre-seed &amp; seed funds</h3><p>A sourced memo for every inbound deal, not only the ones a partner already likes. Keep the whole pipeline on a watchlist and get told when something moves.</p></div>
+      <div class="card"><h3>Scouts &amp; angels</h3><p>Show up to the founder call with the facts a fund's analyst would have found, in the time it takes to make a coffee.</p></div>
+      <div class="card"><h3>Accelerators &amp; studios</h3><p>Screen a batch of applicants against what the web actually says about them, with the contradictions surfaced before the interview.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= PROOF ================= -->
+<section id="proof">
+  <div class="wrap">
+    <div class="head">
+      <div class="eyebrow">Evidence it works</div>
+      <h2 class="display">A model alone guesses. <span class="copper">With live data, it cites.</span></h2>
+      <p>Benchmark on 10 YC Fall 2026 startups, recent enough that no language model has seen them, with 5 factual questions each: founders, funding, product, competitors, status.</p>
+    </div>
+    <div class="table">
+      <div class="row h"><div>Metric</div><div>LLM alone</div><div>PreSeedDiligence</div></div>
+      <div class="row"><div class="m">Factual accuracy</div><div class="v dim">22%</div><div class="v hi">88%</div></div>
+      <div class="row"><div class="m">Claims with a dated source</div><div class="v dim">0%</div><div class="v hi">100%</div></div>
+      <div class="row"><div class="m">Contradictions surfaced</div><div class="v dim">0</div><div class="v hi">14</div></div>
+      <div class="row"><div class="m">Time per startup</div><div class="v dim">3 h by hand</div><div class="v hi">2 min</div></div>
+    </div>
+    <div class="caption">Pilot benchmark, October 2026. Questions and reference answers are published with the app so the numbers can be re-run.</div>
+  </div>
+</section>
+
+<!-- ================= PRICING ================= -->
+<section id="pricing">
+  <div class="wrap">
+    <div class="head center">
+      <div class="eyebrow">Pricing</div>
+      <h2 class="display">A hundred times cheaper. <span class="copper">A hundred times more deals.</span></h2>
+    </div>
+    <div class="price">
+      <div class="card">
+        <span class="tag ok">Beta</span>
+        <div class="big">Free <small>during the beta</small></div>
+        <p>For the funds that help us set the bar.</p>
+        <ul>
+          <li>Unlimited runs on your deal flow</li>
+          <li>Watchlist with change alerts</li>
+          <li>Every memo exportable as PDF</li>
+        </ul>
+        <a class="btn btn-ghost" href="#top" style="margin-top:26px">Run your first memo</a>
+      </div>
+      <div class="card featured">
+        <span class="tag">Fund</span>
+        <div class="big">€300 <small>per seat · month</small></div>
+        <p>For funds running 100+ deals a month through the pipeline.</p>
+        <ul>
+          <li>Shared fact memory across the team</li>
+          <li>Daily re-checks on the whole watchlist</li>
+          <li>Ask the memo: sourced answers to follow-up questions</li>
+          <li>Access from your own tools via MCP</li>
+        </ul>
+        <a class="btn btn-copper" href="mailto:hello@preseeddiligence.com" style="margin-top:26px">Talk to us</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= CTA ================= -->
+<section class="cta">
+  <div class="wrap">
+    <div class="eyebrow">Start with one deal</div>
+    <h2 class="display">Type a startup. <span class="copper">Read the memo before the call.</span></h2>
+    <form class="search" action="/app" method="get">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3.5 3 14.5 0 18M12 3c-3 3.5-3 14.5 0 18"/></svg>
+      <input name="startup" placeholder="Startup name or website" autocomplete="off" required>
+      <button class="btn btn-copper" type="submit">Run diligence</button>
+    </form>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <span>© 2026 PreSeedDiligence · Built for the Accel Future Founder Challenge</span>
+    <div class="right">
+      <a href="/app">App</a>
+      <a href="#how">How it works</a>
+      <a href="#proof">Proof</a>
+    </div>
+  </div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1180 256">
+  <path d="M48 120 C48 186 96 230 128 244 C160 230 208 186 208 120 Z" fill="#000"/>
+  <circle cx="92" cy="160" r="30" fill="#fff"/>
+  <circle cx="164" cy="160" r="30" fill="#fff"/>
+  <circle cx="96" cy="164" r="13" fill="#000"/>
+  <circle cx="160" cy="164" r="13" fill="#000"/>
+  <path d="M128 192 L137 203 L128 216 L119 203 Z" fill="#fff"/>
+  <path d="M32 118 C32 66 76 38 128 38 C180 38 224 66 224 118 C198 112 150 112 128 146 C106 112 58 112 32 118 Z" fill="#000" stroke="#fff" stroke-width="10" stroke-linejoin="round"/>
+  <rect x="119" y="16" width="18" height="34" rx="9" fill="#000"/>
+  <text x="284" y="162" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-weight="700" font-size="104" letter-spacing="-3" fill="#000">PreSeedDiligence</text>
+</svg>
