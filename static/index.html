@@ -340,8 +340,8 @@ function renderChanges() {
 }
 
 function renderAsk() {
-  if ($('tab-ask').dataset.run === String(RUN_ID)) return;
-  $('tab-ask').dataset.run = RUN_ID;
+  if ($('tab-ask').dataset.askRun === String(RUN_ID)) return;
+  $('tab-ask').dataset.askRun = RUN_ID;
   $('tab-ask').innerHTML = `
     <div class="bg-[#15110e] rounded-xl border border-white/[0.08] flex flex-col h-[520px]">
       <div class="flex-1 overflow-y-auto p-6 space-y-5 text-sm" id="chat">
@@ -395,7 +395,7 @@ function openSource(n) {
 document.addEventListener('click', e => {
   const c = e.target.closest('.cite');
   if (c) { openSource(c.dataset.s); return; }
-  const w = e.target.closest('[data-run]');
+  const w = e.target.closest('a[data-run]');
   if (w) { e.preventDefault(); loadRun(w.dataset.run); return; }
   const tab = e.target.closest('.tab');
   if (tab) {
