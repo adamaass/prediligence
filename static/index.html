@@ -358,10 +358,17 @@ function renderAsk() {
     $('askInput').value = '';
     const chat = $('chat');
     chat.insertAdjacentHTML('beforeend', `<div class="flex justify-end"><div class="btn-copper rounded-2xl rounded-br-sm px-4 py-2.5 max-w-md">${esc(q)}</div></div>
-      <div class="flex gap-3" id="pending"><div class="w-7 h-7 shrink-0 rounded-md btn-copper text-xs font-bold flex items-center justify-center">P</div><div class="text-[#6f665d] animate-pulse">Thinking…</div></div>`);
+      <div class="flex gap-3" id="pending"><div class="w-7 h-7 shrink-0 rounded-md btn-copper text-xs font-bold flex items-center justify-center">P</div><div class="text-[#6f665d] animate-pulse">Checking stored evidence — searching the live web if it is not enough…</div></div>`);
     try {
       const r = await api(`/api/runs/${RUN_ID}/ask`, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ question: q }) });
-      $('pending').lastElementChild.outerHTML = `<div class="text-[#cfc6bb] leading-7 max-w-2xl">${withCites(r.answer)}</div>`;
+      if (r.new_sources && r.new_sources.length) {
+        // New sources were stored on this run: refresh them so their citations open in the drawer
+        DATA.sources = (await api('/api/runs/' + RUN_ID)).sources;
+      }
+      const note = r.searched
+        ? `<div class="mb-1.5 text-[11px] font-mono uppercase tracking-wider text-[#d9a070]">🔎 Searched the live web · ${r.new_sources.length} new source${r.new_sources.length === 1 ? '' : 's'} stored in memory</div>`
+        : `<div class="mb-1.5 text-[11px] font-mono uppercase tracking-wider text-[#6f665d]">From stored evidence</div>`;
+      $('pending').lastElementChild.outerHTML = `<div class="text-[#cfc6bb] leading-7 max-w-2xl">${note}${withCites(r.answer)}</div>`;
     } catch (err) { $('pending').lastElementChild.textContent = 'Error: ' + err.message; }
     $('pending').removeAttribute('id');
     chat.scrollTop = chat.scrollHeight;

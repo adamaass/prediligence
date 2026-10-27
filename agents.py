@@ -227,14 +227,55 @@ async def run_pipeline(run_id: int, company: dict):
         raise
 
 
+ASK_SYSTEM = ("You answer a VC's follow-up question about a startup using ONLY the facts and sources given. "
+              "Cite [n] after each claim. Answer in the language of the question.")
+
+
+def evidence_block(facts: list[dict], sources: list[dict]) -> str:
+    return ("FACTS:\n" + "\n".join(f"- [{f['category']}] {f['claim']} ({f['status']}, sources {f['source_ns']})" for f in facts)
+            + "\n\nSOURCES:\n" + sources_block([dict(s, published_at=s.get("published_at")) for s in sources]))
+
+
 async def ask(run_id: int, question: str) -> dict:
+    """Answer from stored evidence; when it is not enough, search the live web, store the new
+    sources on the run (so they become part of its memory) and answer again citing them."""
+    run = db.q("SELECT r.id, c.name, c.website FROM runs r JOIN companies c ON c.id = r.company_id WHERE r.id=%s",
+               (run_id,), one=True)
     facts = db.q("SELECT category, claim, status, source_ns FROM facts WHERE run_id=%s", (run_id,))
-    sources = db.q("SELECT n, title, url, source_type, acquired_at, snippet FROM sources WHERE run_id=%s ORDER BY n", (run_id,))
+    sources = db.q("SELECT n, title, url, source_type, published_at, acquired_at, snippet, from_memory FROM sources "
+                   "WHERE run_id=%s ORDER BY n", (run_id,))
     async with httpx.AsyncClient() as client:
-        return await llm(client,
-            "You answer a VC's follow-up question about a startup using ONLY the stored facts and sources. "
-            "Cite [n] after each claim. If the evidence is insufficient, say so.",
-            "FACTS:\n" + "\n".join(f"- [{f['category']}] {f['claim']} ({f['status']}, sources {f['source_ns']})" for f in facts)
-            + "\n\nSOURCES:\n" + sources_block([dict(s, published_at=None) for s in sources])
-            + f"\n\nQUESTION: {question}\n\nReturn {{\"answer\": \"2-5 sentences with [n] citations\"}}",
+        first = await llm(client, ASK_SYSTEM,
+            f"Startup: {run['name']}\n\n{evidence_block(facts, sources)}\n\nQUESTION: {question}\n\n"
+            "Return {\"sufficient\": true|false (do the facts and sources above actually answer the question?), "
+            "\"answer\": \"2-5 sentences with [n] citations\", "
+            "\"queries\": [if not sufficient: 1-3 web search queries describing the ideal page that would answer it]}",
             max_tokens=1200)
+        if first.get("sufficient", True) or not first.get("queries"):
+            return {"answer": first["answer"], "searched": False, "new_sources": []}
+
+        known = {s["url"] for s in sources}
+        pages = [p for p in await search_all(client, [{"query": q} for q in first["queries"][:3]])
+                 if p["url"] not in known][:10]
+        dom = keenable.domain(run["website"])
+        new = []
+        for i, p in enumerate(pages):
+            s = {"n": len(sources) + i + 1, "url": p["url"], "title": p.get("title"),
+                 "snippet": p.get("snippet") or p.get("description"),
+                 "published_at": (p.get("published_at") or "")[:10] or None,
+                 "acquired_at": (p.get("acquired_at") or "")[:10] or None,
+                 "source_type": keenable.source_type(p["url"], dom), "query": p.get("query"), "from_memory": False}
+            db.q("""INSERT INTO sources (run_id, n, url, title, snippet, published_at, acquired_at, source_type, query, from_memory)
+                    VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)""",
+                 (run_id, s["n"], s["url"], s["title"], s["snippet"], s["published_at"], s["acquired_at"],
+                  s["source_type"], f"ask: {s['query']}", False))
+            new.append(s)
+        if not new:
+            return {"answer": first["answer"], "searched": True, "new_sources": []}
+
+        second = await llm(client, ASK_SYSTEM,
+            f"Startup: {run['name']}\n\n{evidence_block(facts, sources + new)}\n\nQUESTION: {question}\n\n"
+            f"Sources [{new[0]['n']}]-[{new[-1]['n']}] were just found on the live web for this question. "
+            "Return {\"answer\": \"2-6 sentences with [n] citations; say clearly if even the new sources do not answer it\"}",
+            max_tokens=1500)
+        return {"answer": second["answer"], "searched": True, "new_sources": [s["n"] for s in new]}
